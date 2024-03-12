@@ -16,7 +16,9 @@ services:
   backend:
     build: ./backend/
     env_file: .env
-    # Какие контейнеры нужно запустить до старта этого контейнера:
+    volumes:
+      - static:/static/
+      - media:/app/media/
     depends_on:
       - db
 
@@ -35,3 +37,5 @@ services:
     volumes:
       - static:/static
       - media:/media
+    depends_on:
+      - backend
