@@ -22,7 +22,6 @@ services:
 
   frontend:
     image: master1941/kittygram_frontend
-    build: ./frontend/
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static:/frontend_static/
