@@ -14,21 +14,21 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   backend:
-    image: master41/kittygram_backend
+    image: master1941/kittygram_backend
     env_file: .env
     volumes:
       - static:/backend_static/
       - media:/app/media/
 
   frontend:
-    image: master41/kittygram_frontend
+    image: master1941/kittygram_frontend
     build: ./frontend/
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static:/frontend_static/
 
   gateway:
-    image: master41/kittygram_gateway
+    image: master1941/kittygram_gateway
     env_file: .env
     ports:
       - 9000:80
