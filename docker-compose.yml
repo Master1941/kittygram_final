@@ -16,16 +16,16 @@ services:
   backend:
     build: ./backend/
     env_file: .env
-    # Какие контейнеры нужно запустить до старта этого контейнера:
-    depends_on:
-      - db
+    volumes:
+      - static:/backend_static/
+      - media:/app/media/
 
   frontend:
     env_file: .env
     build: ./frontend/
-    command: cp -r /app/build/. /static/
+    command: cp -r /app/build/. /frontend_static/
     volumes:
-      - static:/static
+      - static:/frontend_static
 
   gateway:
     build: ./nginx/
@@ -33,5 +33,5 @@ services:
     ports:
       - 9000:80
     volumes:
-      - static:/static
-      - media:/media
+      - static:/staticfiles
+      - media:/app/media/
