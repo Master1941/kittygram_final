@@ -51,14 +51,24 @@ docker compose  exec backend cp -r /app/collected_static/. /backend_static/stati
 docker compose -f docker-compose.production.yml exec backend python manage.py migrate
 ```
 ### Примеры запросов:
-Пример GET запроса:
-```
-```
 
-Пример POST запроса:
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{"name": "Alice", "age": 25}' http://localhost:3000/api/users
-```
+Получить список всех котиков:
+
+    ```
+    https://yakittygram.myftp.org/api/сats/
+    ```
+
+Получение конкретного котика:
+
+    ```
+    https://yakittygram.myftp.org/api/сats/1/
+    ```
+
+Получение список всех котиков у конкретного пользователя:
+
+    ```
+    https://yakittygram.myftp.org/api/users/
+    ```
 
 ### Использованные технологии:
 
